@@ -8,7 +8,7 @@
    #  DESCRIPTION:
    #      OPTIONS:  
    # REQUIREMENTS: 
-   #       AUTHOR: Matt DeMarco
+   #       AUTHOR: MattDee (mattdee@gmail.com)
    #      CREATED:
    #      VERSION: 1.0
    #      EUL    : 	THIS CODE IS OFFERED ON AN “AS-IS” BASIS AND NO WARRANTY, EITHER EXPRESSED OR IMPLIED, IS GIVEN. 
@@ -208,10 +208,16 @@ alter database mount;
 SWITCH DATABASE TO COPY;
 RUN
 {
-  ALLOCATE CHANNEL dev1 DEVICE TYPE DISK;
-  ALLOCATE CHANNEL dev2 DEVICE TYPE DISK;
-  ALLOCATE CHANNEL dev3 DEVICE TYPE DISK;
-  ALLOCATE CHANNEL dev4 DEVICE TYPE DISK;
+    allocate channel dev1 type disk;
+    allocate channel dev2 type disk;
+    allocate channel dev3 type disk;
+    allocate channel dev4 type disk;
+    allocate channel dev5 type disk;
+    allocate channel dev6 type disk;
+    allocate channel dev7 type disk;
+    allocate channel dev8 type disk;
+    allocate channel dev9 type disk;
+    allocate channel dev10 type disk;
   RECOVER DATABASE;
 }
 
