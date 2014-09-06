@@ -69,6 +69,12 @@ read ORASID
 echo "What is the name of the ASM Disk Group where you would like to store the backup? "
 read BACKUPLOC
 
+if [ -e "/tmp/control.bkp" ]
+then
+  mv /tmp/control.bkp /tmp/control.bkp.$RUNTIME
+fi
+
+
 export ORACLE_SID=$ORASID
 rman target / <<EOF
  
@@ -99,6 +105,7 @@ rman target / <<EOF
 	release channel dev9;
 	release channel dev10;
 shutdown immediate;
+startup;
  }
  exit
 EOF
@@ -123,6 +130,11 @@ read ORASID
 
 echo "What is the name of the ASM Disk Group where you would like to store the backup? "
 read BACKUPLOC
+
+if [ -e "/tmp/control.bkp" ]
+then
+  mv /tmp/control.bkp /tmp/control.bkp.$RUNTIME
+fi
 
 export ORACLE_SID=$ORASID
 
@@ -157,6 +169,7 @@ rman target / <<EOF
 	release channel dev9;
 	release channel dev10;
 shutdown immediate;
+startup;
  }
  exit
 EOF
